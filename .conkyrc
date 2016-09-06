@@ -1,0 +1,97 @@
+
+background yes
+use_xft yes
+xftfont monospace:pixelsize=9.6
+update_interval 1
+total_run_times 0
+own_window yes
+own_window_type desktop
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 250 20
+maximum_width 1366
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+stippled_borders 0
+border_margin 4
+border_width 0
+default_color white
+default_shade_color black
+default_outline_color white
+alignment top_right
+gap_x -10
+gap_y 70
+no_buffers yes
+cpu_avg_samples 2
+net_avg_samples 2
+override_utf8_locale yes
+use_spacer yes
+
+maximum_width 400
+color1 ffffff #ffd800
+color2 ffffff #060606 #dcdecc #8ed4e0 #96F7F4
+
+TEXT
+#leet chars: ┤┤└└┴┴┐┐││┘┘┌┌├├┬┬┼┼┴┴── ││ ▽▼△▲▵▴▾▿
+${alignr}${offset -60} ${image /home/arcibel/Imágenes/Iconos/archl.png -p 125,-4 -s 25x26} ${font DejaVu Sans Mono:pixelsize=14}rchlinux
+${alignr}${offset -6} $font └────────────── ${sysname}   
+${alignr}$font │  
+${alignr}$font ${nodename} -─┤  
+${alignr}$font < ${kernel} > kernel -─┤    │  
+${alignr}$font < $machine > Arch   -─┤    │  
+${alignr}$font < $uptime >  Activo -─┘    │  
+                                          │
+${alignr}$font Temp ciudad -─┤  
+#
+#Página de localización para la temperatura http://weather.noaa.gov/
+#
+${alignr}$font ${offset 0}< ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ MMMX temperature temperature 15}°C > México City──┘     │  
+                                          │
+${alignr}$font Sistema -─┤  
+${alignr}$font Cpu -─┤    │  
+${alignr}$font Utilizando -─┤    │    │  
+${alignr}$font < ${cpu 1}% > cpu1 -─┤    │    │    │  
+${alignr}$font < ${cpu 2}% > cpu2 -─┘    │    │    │  
+${alignr}$font Frec -─┤    │    │  
+${alignr}$font < ${freq 1}mhz > cpu1 -─┤    │    │    │  
+${alignr}$font < ${freq 2}mhz > cpu2 -─┘    │    │    │  
+${alignr}$font < $loadavg > Carga -─┤    │    │  
+${alignr}$font < ${top name 1}  ${top cpu 1} > -─┤    │    │  
+${alignr}$font < ${top name 2}  ${top cpu 2} > -─┤    │    │  
+${alignr}$font < ${top name 3}  ${top cpu 3} > -─┤    │    │  
+${alignr}$font < ${top name 4}  ${top cpu 4} > -─┤    │    │  
+${alignr}$font < ${top name 5}  ${top cpu 5} > -─┘    │    │  
+${alignr}$font Procesos -─┤    │  
+${alignr}$font < $processes >   Total -─┤    │    │  
+${alignr}$font < $running_processes > Corriendo -─┘    │    │  
+${alignr}$font Temperatura -─┘    │  
+${alignr}$font < ${hwmon temp 1} > T1 -─┘         │  
+${alignr}$font │  
+${alignr}$font Recursos -─┤  
+${alignr}$font < $diskio_read >  Lectura -─┤    │  
+${alignr}$font < $diskio_write > Escritura -─┤    │  
+${alignr}$font Ram -─┤    │  
+${alignr}$font < $memperc% > Utilizando -─┤    │    │  
+${alignr}$font < $mem/$memmax > -─┘    │    │    │  
+${alignr}$font < ${top_mem name 1}  ${top_mem mem 1} > -─┤    │    │  
+${alignr}$font < ${top_mem name 2}  ${top_mem mem 2} > -─┤    │    │  
+${alignr}$font < ${top_mem name 3}  ${top_mem mem 3} > -─┤    │    │  
+${alignr}$font < ${top_mem name 4}  ${top_mem mem 4} > -─┤    │    │  
+${alignr}$font < ${top_mem name 5}  ${top_mem mem 5} > -─┘    │    │  
+${alignr}$font < $swapperc% - $swap/$swapmax > Swap -─┤    │  
+${alignr}$font < ${swapbar 5,120} > -─┘    │    │  
+${alignr}$font < ${fs_used /}/${fs_size /} > Root -─┤    │  
+${alignr}$font < ${fs_bar 5,120 /} > -─┘    │    │  
+${alignr}$font < ${fs_used /home}/${fs_size /home} > Home -─┤    │  
+${alignr}$font < ${fs_bar 5,120 /home/} > -─┘    │    │  
+${alignr}$font < ${fs_used /boot}/${fs_size /boot} > Boot -─┘    │  
+${alignr}$font < ${fs_bar 5,120 /boot} > -─┘         │  
+${alignr}$font │  
+${alignr}$font Red -─┘  
+${alignr}$font < ${upspeed wlan0} k/s >   Sub▲ -─┤       
+${alignr}$font < ${upspeedgraph wlan0 8,120 8b2132 ffffff} > -─┘    │       
+${alignr}$font < ${downspeed wlan0} k/s > Des▼ -─┘       
+${alignr}$font < ${downspeedgraph wlan0 8,120 8b2132 ffffff} >-─┘         │ 
