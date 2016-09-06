@@ -1,0 +1,16 @@
+
+#sudo pacman -S mpc mpd ncmpcpp 
+#
+#mkdir ~/.config/mpd
+#
+#~/.config/mpd/mpd.conf
+#
+#mkdir .config/mpd/playlists
+#
+#mpd
+#
+#sudo killall mpd
+#
+#ncmpcpp
+#
+#mpd
