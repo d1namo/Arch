@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "****************"
+echo “Limpiando la caché~ “;
+echo "****************"
+sync ; echo 3 > /proc/sys/vm/drop_caches
+echo "****************"
+echo “Limpiando Swap~ “
+echo "****************";
+swapoff -a && swapon -a
+
+
