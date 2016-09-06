@@ -1,0 +1,54 @@
+###################  NCMPCPP  ####################
+#
+ncmpcpp_directory = 	"~/.ncmpcpp"
+mpd_music_dir = 	"/home/arcibel/Música" 
+mpd_host = 		"localhost"
+mpd_port =		"6600"
+mpd_connection_timeout = 5
+#
+##################  settings  #####################
+#
+autocenter_mode = 	"yes"
+header_visibility = 	"yes"
+#progressbar_look = 	"◾◾◽"
+statusbar_visibility = 	"yes"
+display_bitrate = 	"yes"
+#progressbar_look = "─░─"
+#progressbar_look = "─⊙╶"
+#progressbar_look = "◾◾◽"
+#
+#################  Efectos de música ##############
+#
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_sync_interval = "30" 
+visualizer_in_stereo = "yes"
+#visualizer_type = "wave" (spectrum/wave)
+visualizer_type = "spectrum" (spectrum/wave)
+visualizer_look = "+|"
+#
+#playlist_display_mode = classic
+#
+#browser_display_mode = columns
+#
+#################  Colores blanco y negro ##########
+#
+colors_enabled = yes
+empty_tag_color = "white"
+header_window_color = "white"
+volume_color = "white"
+state_line_color = "black"
+state_flags_color = "white"
+main_window_color = "white"
+color1 = "white"
+color2 = "green"
+main_window_highlight_color = "black"   ###
+progressbar_color = 9
+progressbar_elapsed_color = "white"
+statusbar_color = "white"
+alternative_ui_separator_color = "black"
+active_column_color = "black"           ###
+visualizer_color = "white"
+window_border_color = "white"
+active_window_border = "white"
+#
