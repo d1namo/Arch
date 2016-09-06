@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openbox_menu>
+	<menu id="root-menu" label="OpenBox 3">
+		<menu id="1" label="Development">
+			<item label="IDLE"> <action name="Execute">
+				<execute>idle</execute>
+			</action> </item>
+			<item label="Qt4 Assistant"> <action name="Execute">
+				<execute>assistant-qt4</execute>
+			</action> </item>
+			<item label="Qt4 Designer"> <action name="Execute">
+				<execute>designer-qt4</execute>
+			</action> </item>
+			<item label="Qt4 Linguist"> <action name="Execute">
+				<execute>linguist-qt4</execute>
+			</action> </item>
+			<item label="Qt4 QDbusViewer"> <action name="Execute">
+				<execute>qdbusviewer-qt4</execute>
+			</action> </item>
+		</menu>
+		<menu id="2" label="Editors">
+			<item label="Mousepad"> <action name="Execute">
+				<execute>mousepad</execute>
+			</action> </item>
+		</menu>
+		<menu id="18" label="Games">
+			<menu id="9" label="Adventure">
+				<item label="Sclient"> <action name="Execute">
+					<execute>sclient</execute>
+				</action> </item>
+			</menu>
+			<menu id="10" label="Arcade">
+				<item label="PacMan"> <action name="Execute">
+					<execute>pacman</execute>
+				</action> </item>
+			</menu>
+		</menu>
+		<menu id="6" label="Graphics">
+			<item label="GNU Image Manipulation Program"> <action name="Execute">
+				<execute>gimp-2.8</execute>
+			</action> </item>
+			<item label="LibreOffice Draw"> <action name="Execute">
+				<execute>libreoffice --draw</execute>
+			</action> </item>
+			<item label="Ristretto Image Viewer"> <action name="Execute">
+				<execute>ristretto</execute>
+			</action> </item>
+			<item label="The GIMP"> <action name="Execute">
+				<execute>gimp</execute>
+			</action> </item>
+		</menu>
+		<menu id="7" label="Multimedia">
+			<item label="Audio Mixer"> <action name="Execute">
+				<execute>xfce4-mixer</execute>
+			</action> </item>
+			<item label="GNOME MPlayer"> <action name="Execute">
+				<execute>gnome-mplayer</execute>
+			</action> </item>
+			<item label="VLC media player"> <action name="Execute">
+				<execute>vlc</execute>
+			</action> </item>
+			<item label="VLC media player"> <action name="Execute">
+				<execute>qvlc</execute>
+			</action> </item>
+			<item label="Xfburn"> <action name="Execute">
+				<execute>xfburn</execute>
+			</action> </item>
+			<item label="xine"> <action name="Execute">
+				<execute>xine</execute>
+			</action> </item>
+		</menu>
+		<menu id="5" label="Network">
+			<item label="Avahi SSH Server Browser"> <action name="Execute">
+				<execute>bssh</execute>
+			</action> </item>
+			<item label="Avahi VNC Server Browser"> <action name="Execute">
+				<execute>bvnc</execute>
+			</action> </item>
+			<item label="FireFox"> <action name="Execute">
+				<execute>firefox</execute>
+			</action> </item>
+			<item label="Mail Reader"> <action name="Execute">
+				<execute>exo-open --launch MailReader</execute>
+			</action> </item>
+			<item label="Thunderbird"> <action name="Execute">
+				<execute>thunderbird</execute>
+			</action> </item>
+			<item label="Web Browser"> <action name="Execute">
+				<execute>exo-open --launch WebBrowser</execute>
+			</action> </item>
+		</menu>
+		<menu id="3" label="Office">
+			<item label="Dictionary"> <action name="Execute">
+				<execute>xfce4-dict</execute>
+			</action> </item>
+			<item label="LibreOffice Calc"> <action name="Execute">
+				<execute>libreoffice --calc</execute>
+			</action> </item>
+			<item label="LibreOffice Impress"> <action name="Execute">
+				<execute>libreoffice</execute>
+			</action> </item>
+			<item label="LibreOffice Impress"> <action name="Execute">
+				<execute>libreoffice --impress</execute>
+			</action> </item>
+			<item label="LibreOffice Math"> <action name="Execute">
+				<execute>libreoffice --math</execute>
+			</action> </item>
+			<item label="LibreOffice Writer"> <action name="Execute">
+				<execute>libreoffice --writer</execute>
+			</action> </item>
+			<item label="Okular"> <action name="Execute">
+				<execute>okular</execute>
+			</action> </item>
+			<item label="Orage Calendar"> <action name="Execute">
+				<execute>orage</execute>
+			</action> </item>
+			<item label="Orage Globaltime"> <action name="Execute">
+				<execute>globaltime</execute>
+			</action> </item>
+		</menu>
+		<menu id="39" label="Other">
+			<item label="compton"> <action name="Execute">
+				<execute>compton --xrender-sync-fence</execute>
+			</action> </item>
+			<item label="Qt V4L2 test Utility"> <action name="Execute">
+				<execute>qv4l2</execute>
+			</action> </item>
+			<item label="Shutter"> <action name="Execute">
+				<execute>shutter</execute>
+			</action> </item>
+			<item label="Telegram Desktop"> <action name="Execute">
+				<execute>telegram-desktop</execute>
+			</action> </item>
+			<item label="Tint2"> <action name="Execute">
+				<execute>tint2</execute>
+			</action> </item>
+		</menu>
+		<menu id="4" label="Science">
+			<item label="Qalculate!"> <action name="Execute">
+				<execute>qalculate-gtk</execute>
+			</action> </item>
+		</menu>
+		<menu id="19" label="Shells">
+			<item label="LXTerminal"> <action name="Execute">
+				<execute>lxterminal</execute>
+			</action> </item>
+			<item label="Thunar File Manager"> <action name="Execute">
+				<execute>thunar</execute>
+			</action> </item>
+			<item label="Xfce Terminal"> <action name="Execute">
+				<execute>xfce4-terminal</execute>
+			</action> </item>
+		</menu>
+		<menu id="37" label="System">
+			<menu id="36" label="Settings">
+				<menu id="21" label="GNOME">
+					<item label="Adobe Flash Player"> <action name="Execute">
+						<execute>flash-player-properties</execute>
+					</action> </item>
+					<item label="Bluetooth Manager"> <action name="Execute">
+						<execute>blueman-manager</execute>
+					</action> </item>
+					<item label="LightDM GTK+ Greeter settings"> <action name="Execute">
+						<execute>lightdm-gtk-greeter-settings-pkexec</execute>
+					</action> </item>
+					<item label="Network Connections"> <action name="Execute">
+						<execute>nm-connection-editor</execute>
+					</action> </item>
+				</menu>
+				<menu id="35" label="Xfce">
+					<item label="Bluetooth Adapters"> <action name="Execute">
+						<execute>blueman-adapters</execute>
+					</action> </item>
+					<item label="Orage preferences"> <action name="Execute">
+						<execute>orage -p</execute>
+					</action> </item>
+					<item label="Settings Manager"> <action name="Execute">
+						<execute>xfce4-settings-manager</execute>
+					</action> </item>
+				</menu>
+				<item label="Accessibility"> <action name="Execute">
+					<execute>xfce4-accessibility-settings</execute>
+				</action> </item>
+				<item label="Appearance"> <action name="Execute">
+					<execute>xfce4-appearance-settings</execute>
+				</action> </item>
+				<item label="ARandR"> <action name="Execute">
+					<execute>arandr</execute>
+				</action> </item>
+				<item label="Customize Look and Feel"> <action name="Execute">
+					<execute>lxappearance</execute>
+				</action> </item>
+				<item label="Default applications for LXSession"> <action name="Execute">
+					<execute>lxsession-default-apps</execute>
+				</action> </item>
+				<item label="Desktop"> <action name="Execute">
+					<execute>xfdesktop-settings</execute>
+				</action> </item>
+				<item label="Desktop Session Settings"> <action name="Execute">
+					<execute>lxsession-edit</execute>
+				</action> </item>
+				<item label="Display"> <action name="Execute">
+					<execute>xfce4-display-settings</execute>
+				</action> </item>
+				<item label="File Manager"> <action name="Execute">
+					<execute>thunar-settings</execute>
+				</action> </item>
+				<item label="Keyboard"> <action name="Execute">
+					<execute>xfce4-keyboard-settings</execute>
+				</action> </item>
+				<item label="MIME Type Editor"> <action name="Execute">
+					<execute>xfce4-mime-settings</execute>
+				</action> </item>
+				<item label="Mouse and Touchpad"> <action name="Execute">
+					<execute>xfce4-mouse-settings</execute>
+				</action> </item>
+				<item label="Notifications"> <action name="Execute">
+					<execute>xfce4-notifyd-config</execute>
+				</action> </item>
+				<item label="Openbox Configuration Manager"> <action name="Execute">
+					<execute>obconf</execute>
+				</action> </item>
+				<item label="Panel"> <action name="Execute">
+					<execute>xfce4-panel --preferences</execute>
+				</action> </item>
+				<item label="Power Manager"> <action name="Execute">
+					<execute>xfce4-power-manager-settings</execute>
+				</action> </item>
+				<item label="Preferred Applications"> <action name="Execute">
+					<execute>exo-preferred-applications</execute>
+				</action> </item>
+				<item label="Removable Drives and Media"> <action name="Execute">
+					<execute>thunar-volman-settings</execute>
+				</action> </item>
+				<item label="Session and Startup"> <action name="Execute">
+					<execute>xfce4-session-settings</execute>
+				</action> </item>
+				<item label="Settings Editor"> <action name="Execute">
+					<execute>xfce4-settings-editor</execute>
+				</action> </item>
+				<item label="Tint2 Settings"> <action name="Execute">
+					<execute>tint2conf</execute>
+				</action> </item>
+				<item label="Window Manager"> <action name="Execute">
+					<execute>xfwm4-settings</execute>
+				</action> </item>
+				<item label="Window Manager Tweaks"> <action name="Execute">
+					<execute>xfwm4-tweaks-settings</execute>
+				</action> </item>
+				<item label="Workspaces"> <action name="Execute">
+					<execute>xfwm4-workspace-settings</execute>
+				</action> </item>
+			</menu>
+			<item label="Avahi Zeroconf Browser"> <action name="Execute">
+				<execute>avahi-discover</execute>
+			</action> </item>
+			<item label="BleachBit"> <action name="Execute">
+				<execute>bleachbit</execute>
+			</action> </item>
+			<item label="Bulk Rename"> <action name="Execute">
+				<execute>/usr/lib/Thunar/ThunarBulkRename</execute>
+			</action> </item>
+			<item label="GParted"> <action name="Execute">
+				<execute>gparted_polkit</execute>
+			</action> </item>
+			<item label="Grsync"> <action name="Execute">
+				<execute>grsync</execute>
+			</action> </item>
+			<item label="Log Out"> <action name="Execute">
+				<execute>xfce4-session-logout</execute>
+			</action> </item>
+			<item label="Sensor Viewer"> <action name="Execute">
+				<execute>xfce4-sensors</execute>
+			</action> </item>
+			<item label="Task Manager"> <action name="Execute">
+				<execute>xfce4-taskmanager</execute>
+			</action> </item>
+			<item label="Xkill"> <action name="Execute">
+				<execute>xkill</execute>
+			</action> </item>
+			<item label="Xrefresh"> <action name="Execute">
+				<execute>xrefresh</execute>
+			</action> </item>
+		</menu>
+		<menu id="38" label="Utilities">
+			<item label="About Xfce"> <action name="Execute">
+				<execute>xfce4-about</execute>
+			</action> </item>
+			<item label="Application Finder"> <action name="Execute">
+				<execute>xfce4-appfinder</execute>
+			</action> </item>
+			<item label="Archive Manager"> <action name="Execute">
+				<execute>file-roller</execute>
+			</action> </item>
+			<item label="Clipman"> <action name="Execute">
+				<execute>xfce4-clipman</execute>
+			</action> </item>
+			<item label="File Manager"> <action name="Execute">
+				<execute>exo-open --launch FileManager</execute>
+			</action> </item>
+			<item label="Notes"> <action name="Execute">
+				<execute>xfce4-notes</execute>
+			</action> </item>
+			<item label="Run Program..."> <action name="Execute">
+				<execute>xfce4-appfinder --collapsed</execute>
+			</action> </item>
+			<item label="Screenshot"> <action name="Execute">
+				<execute>xfce4-screenshooter</execute>
+			</action> </item>
+			<item label="Terminal Emulator"> <action name="Execute">
+				<execute>exo-open --launch TerminalEmulator</execute>
+			</action> </item>
+		</menu>
+		<separator/>
+		<menu id="40" label="OpenBox">
+			<menu id="client-list-menu"/>
+			<item label="Reconfigure"> <action name="Reconfigure"/> </item>
+			<separator/>
+			<item label="Exit"> <action name="Exit"/> </item>
+		</menu>
+	</menu>
+</openbox_menu>
