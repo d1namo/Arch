@@ -7,7 +7,6 @@ PS1="\[\e[0;37m\]┌─[\[\e[1;37m\u\e[0;37m\]]──[\[\e[1;37m\]${HOSTNAME%%.*
 #Custon
 alias music='ncmpcpp'
 alias wifi='stalonetray'
-alias yart='yaourt -S'
 alias speed='speedtest-cli'
 
 
