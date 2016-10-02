@@ -199,7 +199,7 @@ bindsym $mod+F9 exec
 # 
 bindsym $mod+F10 exec
 #
-# Apagar, suspender, etc.
+#  Apagar, suspender, etc.
 bindsym $mod+F12 exec lxsession-logout
 #
 #  Captura de pantalla
