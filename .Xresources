@@ -1,0 +1,89 @@
+!D1namo  
+!
+! special
+*.foreground:   #a17e3e
+*.background:   #191716
+*.cursorColor:  #a17e3e
+
+! black
+*.color0:       #0f0e0d
+*.color8:       #a17e3e
+
+! red
+*.color1:       #845336
+*.color9:       #8c4f4a
+
+! green
+*.color2:       #57553c
+*.color10:      #898471
+
+! yellow
+*.color3:       #a17e3e
+*.color11:      #c8b491
+
+! blue
+*.color4:       #43454f
+*.color12:      #65788f
+
+! magenta
+*.color5:       #604848
+*.color13:      #755e4a
+
+! cyan
+*.color6:       #5c6652
+*.color14:      #718062
+
+! white
+*.color7:       #a18b62
+*.color15:      #bc9d66
+
+
+
+!#❱❱╍URXVT COPY PASTE SHORTCUTS
+!
+URxvt.geometry: 70x25+0+0
+
+!#❱❱╍URxvt.title:Consola
+!
+!URxvt.iconFile:/
+
+!#❱❱╍Eliminar scroll
+URxvt.scrollBar:false
+
+!#❱❱╍Transparencia
+URxvt.depth: 32
+URxvt.background:[78]#000000
+
+!#❱❱╍Letras
+URxvt.foreground:#a17e3e
+
+!#❱❱╍Color del cursor
+URxvt.cursorColor:#a7771f
+
+!#❱❱╍Parpadeo al cursor
+URxvt.cursorBlink:true
+
+!#❱❱╍Fuente
+!URxvt.font:xft:Terminus:pixelsize=11:antialias=false
+!URxvt.boldFont: xft:Terminus:bold:pixelsize=11:antialias=false
+!
+URxvt.font: xft:Tewi:pixelsize=11:antialias=true
+URxvt.boldFont: xft:Tewi:pixelsize=11:antialias=true
+
+!#❱❱╍Pixel
+URxvt.letterSpace:-1
+
+!#❱❱╍Pestañas
+URxvt.perl-ext-commoni:default,tabbed
+
+!#❱❱╍Color de fondo de las pestañas
+URxvt.tabbed.tab-bg:#000000
+
+!#❱❱╍Color frontal de las pestañas
+URxvt.tabbed.tab-fg:#699000
+
+!#❱❱╍Color de fondo de los separadores de pestañas
+URxvt.tabbed.tabbar-bg:#000000
+
+!#❱❱╍Color frontal de los separadores de las pestañas
+URxvt.tabbed.tabbar-fg:#4E9A06
