@@ -1,0 +1,96 @@
+##################
+# video settings #
+##################
+
+# Specify default video driver (see --vo=help for a list).
+vo=vdpau
+
+# Start in fullscreen mode by default.
+#fs=yes
+
+# force starting with centered window
+#geometry=50%:50%
+
+# don't allow a new window to have a size larger than 90% of the screen size
+autofit-larger=50%x50%
+
+# Disable the On Screen Controller (OSC).
+osc=yes
+
+# Keep the player window on top of all other windows.
+#ontop=yes
+
+
+##################
+# audio settings #
+##################
+
+# Specify default audio driver (see --ao=help for a list).
+ao = alsa
+
+# Disable softvol usage, and always use the system mixer if available.
+
+softvol=yes
+
+# maximum volume in %, everything above 100 results in amplification
+
+softvol-max=150                         
+volume=90    
+
+
+##################
+# other settings #
+##################
+
+# Pretend to be a web browser. Might fix playback with some streaming sites.
+user-agent = "Mozilla/5.0"
+
+# cache settings
+#
+# Use 8MB input cache by default. The cache is enabled for network streams only.
+cache-default = 8192
+#
+# Use 8MB input cache for everything, even local files.
+cache = 8192
+#
+# Prefill 20% of the cache before starting playback.
+#cache-min = 20.0
+#
+# Prefill 50% of the cache before restarting playback after the cache emptied.
+#cache-seek-min = 50
+
+# Display Brazilian Portuguese subtitles if available.
+slang = pt_BR
+
+# Play Brazilian Portuguese audio if available.
+alang = pt_BR
+
+# Enable hardware decoding if available. Often, this requires using an certain
+# video output, otherwise no hardware decoding will be used.
+#hwdec=auto
+hwdec = vdpau
+
+# multithreaded decoding of H264/MPEG-1/2 (valid: 0-16)
+vd-lavc-threads = 2
+
+# If the file seems to be valid UTF-8, prefer UTF-8.
+sub-codepage = utf8:cp1250
+sub-scale-with-window = no
+sub-text-font-size = 60
+sub-text-color = 1/1/0
+
+############
+# Profiles #
+############
+
+[pseudo-gui]
+terminal=no
+force-window=yes
+#idle=once
+#screenshot-directory=~~Vídeos
+
+#[vdpau]
+# The profile forces the vdpau VO.
+vo=vdpau
+# Use hardware decoding (this might break playback of some h264 files)
+hwdec=vdpau
