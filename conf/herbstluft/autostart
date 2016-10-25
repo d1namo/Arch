@@ -44,12 +44,14 @@ feh --bg-scale ~/.config/herbstluftwm/herbstluftwm.png
 #hc spawn nitrogen --restore
 hc spawn dunst
 hc spawn mpd
+hc spawn xfce4-power-manager
+hc spawn compton -c -f -o 0.9 -D 5 -m 9 -b
+
+#touchpad
 hc spawn synclient VertEdgeScroll=1 &
 hc spawn synclient HorizEdgeScroll=1 &
 hc spawn synclient TapButton1=1 &
-hc spawn xfce4-power-manager
-hc spawn compton -c -f -o 0.9 -D 5 -m 9 -b
- 
+
 #audio
 hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume 0 +5% #increase sound volume
 hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume 0 -5% #decrease sound volume
