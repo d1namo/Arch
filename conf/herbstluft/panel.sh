@@ -10,14 +10,12 @@ fi
 # geometry has the format W H X Y
 x=${geometry[0]}
 y=${geometry[1]}
-panel_width=${geometry[2]}
+panel_width=$((${geometry[2]} - 18))
 panel_height=16
 font="-*-fixed-medium-*-*-*-12-*-*-*-*-*-*-*"
-#font2="-misc-monofur-medium-*-*-*-12-*-*-*-*-*-*-*"
-#font3="-misc-fontawesome-medium-r-normal--0-0-0-12-p-0-iso10646-1"
 bgcolor=$(hc get frame_border_normal_color)
 selbg=$(hc get window_border_active_color)
-selfg='#101010'
+
 
 ####
 # Try to find textwidth binary.
@@ -67,7 +65,7 @@ hc pad $monitor $panel_height
     while true ; do
         # "date" output is checked once a second, but an event is only
         # generated if the output changed compared to the previous run.
-        date +$'date\t^fg(#efefef)%H:%M^fg(#909090), %Y-%m-^fg(#efefef)%d'
+        date +$'date\t^fg(#efefef)%H:%M:%S^fg(#909090), %Y-%m-^fg(#efefef)%d'
         sleep 1 || break
     done > >(uniq_linebuffered) &
     childpid=$!
@@ -117,12 +115,35 @@ hc pad $monitor $panel_height
             fi
         done
         echo -n "$separator"
-        echo -n "^bg()^fg() ${windowtitle//^/^^}"
-        # small adjustments
-        right="$separator^bg() $date $separator"
+        echo -n "^bg()^fg()^fn(Hermit:size=8) ${windowtitle//^/^^}"
+
+       
+wireless="$(iwconfig wlp4s0 | grep ESSID | awk -F:'"' '{print $2}' | head -c -4)"
+        if [[ -z $wireless ]]; then
+            wireless="NO_INTERNET"
+fi 
+
+# small adjustments
+       
+        batIco="Bat:"
+        volIco="Vol:"
+        wifiIco=""
+        battery=$(neofetch --stdout battery)
+        mpc=$(mpc current)
+        volm="$(pacmd list-sinks |grep -A 15 'index: '$active'' |grep 'volume:' |egrep -v 'base volume:' |awk -F : '{print $3}' |grep -o -P '.{0,3}%'|sed s/.$// |tr -d ' ')%"
+        wifissid=`if [[ $(iwgetid -r) == "" ]]; then echo -e ""; else iwgetid -r; fi` 
+       
+       
+
+
+         right="$separator $date $separator^fg() $volIco^fg($selfg) $volm^fg()$separator^fg() $wifissid^fg() $separator^fg()"
+
+########right="  ♫ $mpc_current $separator^fg() $volIco^fg($selfg) $volm^fg() $separator^fg() $wifissid^fg() $separator^fg() $batIco^fg($selfg) $battery^fg() $pacIco^fg($selfg) $package $separator $date"
         right_text_only=$(echo -n "$right" | sed 's.\^[^(]*([^)]*)..g')
+
         # get width of right aligned text.. and add some space..
-        width=$($textwidth "$font" "$right_text_only    ")
+        #width=$(txtw -f "$font" -F "$font2" "$right_text_only  ")
+        width=$($textwidth "$font" "$right_text_only")
         echo -n "^pa($(($panel_width - $width)))$right"
         echo
 
@@ -176,6 +197,7 @@ hc pad $monitor $panel_height
             #    ;;
         esac
     done
+
 
     ### dzen2 ###
     # After the data is gathered and processed, the output of the previous block
