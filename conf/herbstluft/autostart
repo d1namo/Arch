@@ -38,21 +38,19 @@ killall stalonetray
 #Mod=Mod1    # Use alt as the main modifier
 Mod=Mod4   # Use the super key as the main modifier
  
-# Wallpaper 
+# Wallpaper
 feh --bg-scale ~/.config/herbstluftwm/herbstluftwm.png
 
 # autostart
 #hc spawn nitrogen --restore
 hc spawn dunst
 hc spawn mpd
-hc spawn xfce4-power-manager
-hc spawn compton -c -f -o 0.9 -D 5 -m 9 -b
-
-#touchpad
 hc spawn synclient VertEdgeScroll=1 &
 hc spawn synclient HorizEdgeScroll=1 &
 hc spawn synclient TapButton1=1 &
-
+hc spawn xfce4-power-manager
+hc spawn compton -c -f -o 0.9 -D 5 -m 9 -b
+ 
 #audio
 hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume 0 +5% #increase sound volume
 hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume 0 -5% #decrease sound volume
@@ -64,10 +62,14 @@ hc keybind XF86AudioPrev spawn mpc prev
 hc keybind XF86AudioPlay spawn mpc toggle
 hc keybind XF86AudioStop spawn mpc stop
 
+# basic movement
 hc keybind $Mod-Shift-q close
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c quit
 hc keybind $Mod-Alt-l spawn lock -gpf SourceCodePro
+#hc keybind $Mod-d spawn dmenu_run
+hc keybind $Mod+d spawn j4-dmenu-desktop --term urxvt --display-binar --dmenu "dmenu -b -sb '#b7a462' -sf '#1b1b1b' -nb '#1b1b1b' -nf '#6fa6ab' -nf '#839496' -fn 'Tewi-9'"
+
  
 # terminal
 hc keybind $Mod-Return spawn termite
@@ -75,8 +77,7 @@ hc keybind $Mod-Shift-Return spawn urxvt
  
  
 # start some programs
-hc keybind $Mod-d spawn dmenu_run
-hc keybind $Mod+F1 spawn thunar
+hc keybind $Mod-Alt-g spawn gpick --pick
 hc keybind $Mod+F2 spawn qalculate-gtk
 hc keybind $Mod+F3 spawn firefox
 hc keybind $Mod+F4 spawn thunderbird
@@ -254,5 +255,6 @@ for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
 done
 herbstclient chain $cmds&
 hc spawn stalonetray -bg "#333333" -i 17 --grow-gravity "E" --geometry 1x1-0+0
+
 
 
