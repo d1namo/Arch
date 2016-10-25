@@ -38,6 +38,7 @@ killall stalonetray
 #Mod=Mod1    # Use alt as the main modifier
 Mod=Mod4   # Use the super key as the main modifier
  
+# Wallpaper 
 feh --bg-scale ~/.config/herbstluftwm/herbstluftwm.png
 
 # autostart
