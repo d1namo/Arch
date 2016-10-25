@@ -74,7 +74,6 @@ hc keybind $Mod-Shift-Return spawn urxvt
  
  
 # start some programs
-hc keybind $Mod-Alt-g spawn gpick --pick
 hc keybind $Mod-d spawn dmenu_run
 hc keybind $Mod+F1 spawn thunar
 hc keybind $Mod+F2 spawn qalculate-gtk
