@@ -1,15 +1,23 @@
 #!/bin/bash
-#D1nam0
-#    '##::::'##:'########:'########::'########:::'######::'########:'##:::::::'##::::'##:'########:'########:
-#     ##:::: ##: ##.....:: ##.... ##: ##.... ##:'##... ##:... ##..:: ##::::::: ##:::: ##: ##.....::... ##..::
-#     ##:::: ##: ##::::::: ##:::: ##: ##:::: ##: ##:::..::::: ##:::: ##::::::: ##:::: ##: ##:::::::::: ##::::
-#     #########: ######::: ########:: ########::. ######::::: ##:::: ##::::::: ##:::: ##: ######:::::: ##::::
-#     ##.... ##: ##...:::: ##.. ##::: ##.... ##::..... ##:::: ##:::: ##::::::: ##:::: ##: ##...::::::: ##::::
-#     ##:::: ##: ##::::::: ##::. ##:: ##:::: ##:'##::: ##:::: ##:::: ##::::::: ##:::: ##: ##:::::::::: ##::::
-#     ##:::: ##: ########: ##:::. ##: ########::. ######::::: ##:::: ########:. #######:: ##:::::::::: ##::::
-#    ..:::::..::........::..:::::..::........::::......::::::..:::::........:::.......:::..:::::::::::..:::::
-
-
+#
+# __  __                 __               __    ___               ___  __                               
+#/\ \/\ \               /\ \             /\ \__/\_ \            /'___\/\ \__                            
+#\ \ \_\ \     __   _ __\ \ \____    ____\ \ ,_\//\ \    __  __/\ \__/\ \ ,_\  __  __  __    ___ ___    
+# \ \  _  \  /'__`\/\`'__\ \ '__`\  /',__\\ \ \/ \ \ \  /\ \/\ \ \ ,__\\ \ \/ /\ \/\ \/\ \ /' __` __`\  
+#  \ \ \ \ \/\  __/\ \ \/ \ \ \L\ \/\__, `\\ \ \_ \_\ \_\ \ \_\ \ \ \_/ \ \ \_\ \ \_/ \_/ \/\ \/\ \/\ \ 
+#   \ \_\ \_\ \____\\ \_\  \ \_,__/\/\____/ \ \__\/\____\\ \____/\ \_\   \ \__\\ \___x___/'\ \_\ \_\ \_\
+#    \/_/\/_/\/____/ \/_/   \/___/  \/___/   \/__/\/____/ \/___/  \/_/    \/__/ \/__//__/   \/_/\/_/\/_/
+#                                                                                                       
+#                                                                                                       
+# ____       _                                  __                                                      
+#/\  _`\   /' \                               /'__`\                                                    
+#\ \ \/\ \/\_, \    ___      __      ___ ___ /\ \/\ \                                                   
+# \ \ \ \ \/_/\ \ /' _ `\  /'__`\  /' __` __`\ \ \ \ \                                                  
+#  \ \ \_\ \ \ \ \/\ \/\ \/\ \L\.\_/\ \/\ \/\ \ \ \_\ \                                                 
+#   \ \____/  \ \_\ \_\ \_\ \__/.\_\ \_\ \_\ \_\ \____/                                                 
+#    \/___/    \/_/\/_/\/_/\/__/\/_/\/_/\/_/\/_/\/___/                                                  
+#                                                                                                       
+#                                                                                                       
 hc() {
     herbstclient "$@"
 }
@@ -68,9 +76,9 @@ hc keybind $Mod+F1 spawn thunar
 hc keybind $Mod+F2 spawn qalculate-gtk
 hc keybind $Mod+F3 spawn firefox
 hc keybind $Mod+F4 spawn thunderbird
-hc keybind $Mod+F5 spawm telegram-desktop
-hc keybind $Mod+F6 spawm bleachbit
-hc keybind $Mod+F7 spawm libreoffice --writer
+hc keybind $Mod+F5 spawn telegram-desktop
+hc keybind $Mod+F6 spawn bleachbit
+hc keybind $Mod+F7 spawn libreoffice --writer
 hc keybind $Mod-F12 spawn xfce4-screenshooter
  
 # basic movement
@@ -221,8 +229,7 @@ hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 # unlock, just to be sure
 hc unlock
- 
- 
+
 herbstclient set tree_style '╾│ ├└╼─┐'
  
 # do multi monitor setup here, e.g.:
@@ -237,3 +244,7 @@ for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
     # start it on each monitor
     "$panel" $monitor &
 done
+herbstclient chain $cmds&
+hc spawn stalonetray -bg "#333333" -i 17 --grow-gravity "E" --geometry 1x1-0+0
+
+
