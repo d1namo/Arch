@@ -129,6 +129,9 @@ bindsym $mod+space focus mode_toggle
 #
 bindsym $mod+a focus parent
 #
+##❱❱❱╍Wallpaper
+#
+exec --no-startup-id feh --bg-scale ~/.config/i3/leaves.jpg
 #
 ##❱❱❱╍Espacios de trabajo
 #
@@ -187,7 +190,7 @@ exec --no-startup-id synclient VertEdgeScroll=1 &
 exec --no-startup-id synclient HorizEdgeScroll=1 &
 exec --no-startup-id synclient TapButton1=1 &
 exec --no-startup-id mpd
-exec --no-startup-id nitrogen --restore
+#exec --no-startup-id nitrogen --restore
 exec --no-startup-id xfce4-power-manager
 #exec --no-startup-id blueman
 exec --no-startup-id compton -c -f -o 0.9 -D 5 -m 9 -b
