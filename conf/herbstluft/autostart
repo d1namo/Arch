@@ -39,19 +39,22 @@ killall stalonetray
 Mod=Mod4   # Use the super key as the main modifier
  
 # Wallpaper
-feh --bg-scale ~/.config/herbstluftwm/herbstluftwm.png
+#feh --bg-scale ~/.config/herbstluftwm/wallpaper/herbstluftwm.png
+feh --bg-scale ~/.config/herbstluftwm/wallpaper/squares.jpg
 
 # autostart
 #hc spawn nitrogen --restore
 hc spawn dunst
 hc spawn mpd
+hc spawn xfce4-power-manager
+hc spawn compton -c -f -o 0.9 -D 5 -m 9 -b
+
+# touchpad
 hc spawn synclient VertEdgeScroll=1 &
 hc spawn synclient HorizEdgeScroll=1 &
 hc spawn synclient TapButton1=1 &
-hc spawn xfce4-power-manager
-hc spawn compton -c -f -o 0.9 -D 5 -m 9 -b
  
-#audio
+# 32audio
 hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume 0 +5% #increase sound volume
 hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume 0 -5% #decrease sound volume
 hc keybind XF86AudioMute spawn pactl set-sink-mute 0 toggle # mute sound
@@ -86,7 +89,7 @@ hc keybind $Mod+F6 spawn bleachbit
 hc keybind $Mod+F7 spawn libreoffice --writer
 hc keybind $Mod+F12 spawn xfce4-screenshooter
 #
-#Close
+# Close
 hc keybind $Mod+F10 mode "$mode_system"
  
 # basic movement
@@ -255,5 +258,8 @@ for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
 done
 herbstclient chain $cmds&
 hc spawn stalonetray -bg "#333333" -i 17 --grow-gravity "E" --geometry 1x1-0+0
+
+
+
 
 
