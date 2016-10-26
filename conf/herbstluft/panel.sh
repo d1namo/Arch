@@ -10,7 +10,7 @@ fi
 # geometry has the format W H X Y
 x=${geometry[0]}
 y=${geometry[1]}
-panel_width=$((${geometry[2]} - 18))
+panel_width=$((${geometry[2]} - 19))
 panel_height=16
 font="-*-fixed-medium-*-*-*-12-*-*-*-*-*-*-*"
 bgcolor=$(hc get frame_border_normal_color)
@@ -118,28 +118,58 @@ hc pad $monitor $panel_height
         echo -n "^bg()^fg()^fn(Hermit:size=8) ${windowtitle//^/^^}"
 
        
-wireless="$(iwconfig wlp4s0 | grep ESSID | awk -F:'"' '{print $2}' | head -c -4)"
-        if [[ -z $wireless ]]; then
-            wireless="NO_INTERNET"
-fi 
-
+################################################
 # small adjustments
-       
+################################################       
+#battery
+        bat=`cat /sys/class/power_supply/BAT1/capacity`
+        batstat=`cat /sys/class/power_supply/BAT1/status`
+        if (($batstat=='Charging'))
+        then
+            batico="^i(/usr/share/icons/stlarch_icons/ac10.xbm)"
+        else
+            batico="^i(/usr/share/icons/stlarch_icons/batt5full.xbm)"
+        fi
+        bat="^fg($xicon)$batico ^fg($xtitle)battery ^fg($xfg)$bat^fg($xext)%"
+#################################################
+#up time
+        upSeconds=`cat /proc/uptime`;
+        upSeconds=${upSeconds%%.*};
+        let secs=$((${upSeconds}%60))
+        let mins=$((${upSeconds}/60%60))
+        let hours=$((${upSeconds}/3600%24))
+        let days=$((${upSeconds}/86400))
+        uptime="^fg($xtitle)Up: ^fg($xfg)${days}^fg($xext)d ^fg($xfg)${hours}^fg($xext)h ^fg($xfg)${mins}^fg($xext)m"
+################################################
+#memory
+	mem=`free | awk '/Mem:/ {print int($3/$2 * 100.0)}'`
+	mem="^fg($xtitle)Ram: ^fg($xfg)$mem^fg($xext)%"
+###############################################
+#cpu
+        cpu=`mpstat | awk '$3 ~ /CPU/ { for(i=1;i<=NF;i++) { if ($i ~ /%idle/) field=i } } $3 ~ /all/ { print 100 - $field }'`
+        cpu="^fg($xtitle)cpu ^fg($xfg)$cpu^fg($xext)%"
+###############################################
         batIco="Bat:"
         volIco="Vol:"
-        wifiIco=""
-        battery=$(neofetch --stdout battery)
+        wifiIco="Red:"
         mpc=$(mpc current)
         volm="$(pacmd list-sinks |grep -A 15 'index: '$active'' |grep 'volume:' |egrep -v 'base volume:' |awk -F : '{print $3}' |grep -o -P '.{0,3}%'|sed s/.$// |tr -d ' ')%"
         wifissid=`if [[ $(iwgetid -r) == "" ]]; then echo -e ""; else iwgetid -r; fi` 
-       
-       
+        cpu_temp=$(echo -n $(sensors | grep "Core" | cut -b 16-19))
+        
 
+##############################################
 
-         right="$separator $date $separator^fg() $volIco^fg($selfg) $volm^fg()$separator^fg() $wifissid^fg() $separator^fg()"
+##############################################
 
-########right="  ♫ $mpc_current $separator^fg() $volIco^fg($selfg) $volm^fg() $separator^fg() $wifissid^fg() $separator^fg() $batIco^fg($selfg) $battery^fg() $pacIco^fg($selfg) $package $separator $date"
+         right="$separator $date $separator^fg() $uptime $separator^fg() $mem $separator^fg() $volIco^fg($selfg) $volm^fg()$separator^fg() $wifiIco^fg($selfg) $wifissid^fg() $separator^fg()"
+#
+#>>>>>>>right="  ♫ $mpc_current $separator^fg() $volIco^fg($selfg) $volm^fg() $separator^fg() $wifissid^fg() $separator^fg() $batIco^fg($selfg) $battery^fg() $pacIco^fg($selfg) $package $separator $date"
         right_text_only=$(echo -n "$right" | sed 's.\^[^(]*([^)]*)..g')
+
+
+################################################
+
 
         # get width of right aligned text.. and add some space..
         #width=$(txtw -f "$font" -F "$font2" "$right_text_only  ")
