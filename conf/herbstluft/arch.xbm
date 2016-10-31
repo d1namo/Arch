@@ -1,0 +1,4 @@
+#define archlinuxicoopt_width 8
+#define archlinuxicoopt_height 8
+static char archlinuxicoopt_bits[] = {
+  0xE7, 0xE7, 0xC3, 0xC3, 0x81, 0x80, 0x00, 0x18, };
