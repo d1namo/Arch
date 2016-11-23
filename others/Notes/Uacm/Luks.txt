@@ -1,0 +1,9 @@
+-----CIFRAR CON LUKS------
+
+1-~# cryptsetup luksFormat /dev/sdc?
+
+2-~# cryptsetup luksOpen /dev/sdc? nombre
+
+3-~# mkfs.vfat /dev/mapper/nombre -n nombre
+
+4-~# cryptsetup luksClose nombre

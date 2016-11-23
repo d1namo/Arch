@@ -1,0 +1,43 @@
+Crear llave
+gpg --gen-key
+
+Mostrar llaves almacenadas
+gpg -k
+gpg --list-keys
+
+Mostrar llaves con sus huellas ID
+gpg --fingerprint
+
+Mostrar firmas de las llaves
+gpg --list-sigs
+
+Exportar llave
+gpg -a -o (nombre_y_formato_de_archivo_que_sea) --export (número o correo de la llave a exportar)
+
+Enviar llave a servidores
+gpg --keyserver pool.sks-keyservers.net --send-key (número o correo de la llave a enviar)
+
+Importar llave
+gpg --import (archivo de llave a importar)
+
+Obtener una llave de servidores
+gpg --keyserver pool.sks-keyservers.net --recv-key (número o correo de la llave a importar)
+
+Firmar una llave
+gpg --edit-key (número o correo de la llave a firmar)(enter)
+sign(enter)
+escoger_el_nivel_de_confianza(enter)
+confirmar_la_firma_con_«y»(enter)
+ingresar_frase_de_contraseña_de_gpg_previamente_creada(enter)
+escribir_«save»(enter)
+
+Cifrar un archivo
+gpg -e -a -r nombre_formato_de_archivo_que_sea ruta_del_archivo_a_cifrar
+
+gpg -o nombre_formato_de_archivo_que_sea -e -r (número o correo de la llave para quien va el archivo) ruta_del_archivo_a_cifrar
+
+Descifrar un archivo
+gpg -d -o nombre_archivo_descigrado ruta_del_archivo_cifrado.asc/gpg
+
+Cifrar un archivo simétricamente
+gpg -e -a -c -r (número o correo de la llave para quien va el archivo) -o nombre_formato_de_archivo_que_sea ruta_del_archivo_a_cifrar
