@@ -30,7 +30,7 @@ Notas personales para la instalción de Archlinux con mbr sin uefi. (D1nam0)
 #mkfs -t ext4 /dev/sda?________(raíz)
 #mkfs -t ext4 /dev/sda?________(home)
 #mkswap /dev/sda? && swapon /dev/sda?___(swap)
-#monut /dev/sda? /mnt_____(montar la raíz)
+#mount /dev/sda? /mnt_____(montar la raíz)
 #mkdir /mnt/home   
 #mount /dev/sda? /mnt/home____(montar home)
 #
@@ -93,7 +93,7 @@ pacman -Syyu
 #
 #sudo pacman -Syy
 #
-#sudo pacman -S macchanger openssh openvpn net-tools acpid rkhunter openconnect networkmanager-openconnect  hplip dzen2 speedtest-cli java-openjfx-doc java-openjfx-src  jdk8-openjdk mythes mythes-es  hunspell hunspell-es python-pyqt5 system-config-printer cups cups-filters ghostscript gsfonts simple-scan dunst dropbox encfs ufw wget redshift feh ntp tlp herbstluftwm xterm rxvt-unicode weechat termite lxterminal mpc w3m stalonetray getmail procmail mutt i3 cpupower cronie tmux offlineimap msmtp mpd ncmpcpp lxappearance compton bluez blueman bluez-utils arandr firefox firefox-i18n-es-es thunderbird thunderbird-i18n-es-es vlc gparted gimp libreoffice libreoffice-es hyphen-es file-roller p7zip zip unzip unrar okular kde-l10n-es bleachbit moc grsync qalculate-gtk htop linux-lts linux-lts-headers screenfetch gecko-mediaplayer xine-ui xine-lib libdvdread vim vim-spell-es
+#sudo pacman -S macchanger openssh openvpn net-tools acpi rkhunter openconnect networkmanager-openconnect  hplip dzen2 speedtest-cli java-openjfx-doc java-openjfx-src  jdk8-openjdk mythes mythes-es  hunspell hunspell-es python-pyqt5 system-config-printer cups cups-filters ghostscript gsfonts simple-scan dunst dropbox encfs ufw wget redshift feh ntp tlp herbstluftwm xterm rxvt-unicode weechat termite lxterminal mpc w3m stalonetray getmail procmail mutt i3 cpupower cronie tmux offlineimap msmtp mpd ncmpcpp lxappearance compton bluez blueman bluez-utils arandr firefox firefox-i18n-es-es thunderbird thunderbird-i18n-es-es vlc gparted gimp libreoffice libreoffice-es hyphen-es file-roller p7zip zip unzip unrar okular kde-l10n-es bleachbit moc grsync qalculate-gtk htop linux-lts linux-lts-headers screenfetch gecko-mediaplayer xine-ui xine-lib libdvdread vim vim-spell-es
 #
 ############### Para todos xfce4 y gestores de ventanas ##########
 #
