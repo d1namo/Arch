@@ -1,0 +1,230 @@
+Notas personales para la instalción de Archlinux con mbr sin uefi. (D1nam0) 
+#======================================================================================
+#
+#                  -`
+#                  .o+`                 A R C H - L I N U X 
+#                 `ooo/                  
+#                `+oooo:                  
+#               `+oooooo:               
+#               -+oooooo+:              
+#             `/:-:++oooo+:             
+#            `/++++/+++++++:                    
+#           `/++++++++++++++:                       XFCE-4
+#          `/+++ooooooooooooo/`         
+#         ./ooosssso++osssssso+`          
+#        .oossssso-````/ossssss+`       
+#       -osssssso.      :ssssssso.                                 
+#      :osssssss/        osssso+++.                                      I3-WM              
+#     /ossssssss/        +ssssooo/-     
+#   `/ossssso+/:-        -:/+osssso+-                           
+#  `+sso+:-`                 `.-/+oso: 
+# `++:.                           `-/+/
+# .`                                 `/              Herbstluft-wm
+#
+#======================================================================================
+#loadkeys es
+#loadkeys la-latin1
+#wifi-menu ((((Si se usa un portátil)))
+#ping -c 3 google.com
+#cfdisk  (*Crea tus particiones, con sda o con sdb, depende como lo reconozca el instalador.Ejemplo: cfdisk /dev/sdb) 
+#mkfs -t ext4 /dev/sda?________(raíz)
+#mkfs -t ext4 /dev/sda?________(home)
+#mkswap /dev/sda? && swapon /dev/sda?___(swap)
+#monut /dev/sda? /mnt_____(montar la raíz)
+#mkdir /mnt/home   
+#mount /dev/sda? /mnt/home____(montar home)
+#
+################################################
+*¡Por favor! revisar que todo esta bien montado 
+con las particiones y sus directorios con: lsblk
+################################################
+#
+#pacstrap /mnt base base-devel
+#
+*Si notas que los mirrors son un poco lentos, interrumpe las instalación edita la siguinete  línea:
+nano /etc/pacman.d/mirrorlist (Ubica el más cercano a tu geolocalización, con Alt + 6 lo copias y
+con Ctl + U lo pegas, siempre debe estar por encima de los demas mirrors.
+#
+#pacstrap /mnt networkmanager
+#pacstrap /mnt xf86-input-synaptics
+#genfstab -U -p /mnt >> /mnt/etc/fstab
+#arch-chroot /mnt
+#nano /etc/hostname (Nombre del equipo, ejemplo: Arch-pc)
+#nano /etc/locale.conf (Ejemplo: LANG=es_MX.UTF-8)
+#nano /etc/locale.gen (Borrar “#” de: es_MX.UTF-8 UTF-8) 
+#locale-gen 
+#nano /etc/vconsole.conf (Añadir KEYMAP=la-latin1)
+#ln -sf /usr/share/zoneinfo/Continente/Tu_Cuidad /etc/localtime 
+#hwclock --systohc --utc (((Es posible que al finalizar la instalción la hora este desfazada, usar ntp)))
+#pacman -S reflector rsync
+#reflector --verbose -l 10 --sort rate --save /etc/pacman.d/mirrorlist
+pacman -Syyu
+#pacman -S grub os-prober freetype2 dosfstools mtools
+#mkinitcpio -p linux
+#grub-install /dev/sda
+#grub-mkconfig -o /boot/grub/grub.cfg 
+#passwd  (((Para root)))
+#exit
+#umount -R /mnt
+#reboot
+#
+#***Inicia con el user root***
+#systemctl start NetworkManager.service && systemctl enable NetworkManager.service
+#useradd -m -g users -G audio,lp,optical,storage,video,wheel,games,power,scanner -s /bin/bash ((mi-usuario))
+#passwd ((mi-usuario)) (Ejemplo: passwd fulanito) 
+#nano /etc/sudoers ***Para habilitar sudo ubicar_#%wheel ALL y borrar *#*  !!!Esta debajo de!!!: _*User privilege specification*_)))
+#reboot (((*Opcional, o continuar la instalción como root))
+#sudo nmcli dev wifi connect nombre-de-su-red password clave-de-su-red
+#sudo pacman -Syy
+#
+###############  Instalar Xorg  #######################
+#
+#sudo pacman -S xorg-server xorg-apps  mesa mesa-demos xf86-video-ati*
+#
+################  Instalar fuentes ###########################
+#
+#sudo pacman -S ttf-dejavu  ttf-droid  ttf-inconsolata ttf-liberation ttf-bitstream-vera  ttf-freefont
+#
+################ Entorno XFCE4 y para activarlo es con #startxfce4 ###################################
+#
+#sudo pacman -S xfce4 xfce4-goodies network-manager-applet pulseaudio pulseaudio-alsa volumeicon
+#
+################  Aplicaciones adicionales del sistema   ########################
+#
+#sudo pacman -Syy
+#
+#sudo pacman -S macchanger openssh openvpn net-tools acpid rkhunter openconnect networkmanager-openconnect  hplip dzen2 speedtest-cli java-openjfx-doc java-openjfx-src  jdk8-openjdk mythes mythes-es  hunspell hunspell-es python-pyqt5 system-config-printer cups cups-filters ghostscript gsfonts simple-scan dunst dropbox encfs ufw wget redshift feh ntp tlp herbstluftwm xterm rxvt-unicode weechat termite lxterminal mpc w3m stalonetray getmail procmail mutt i3 cpupower cronie tmux offlineimap msmtp mpd ncmpcpp lxappearance compton bluez blueman bluez-utils arandr firefox firefox-i18n-es-es thunderbird thunderbird-i18n-es-es vlc gparted gimp libreoffice libreoffice-es hyphen-es file-roller p7zip zip unzip unrar okular kde-l10n-es bleachbit moc grsync qalculate-gtk htop linux-lts linux-lts-headers screenfetch gecko-mediaplayer xine-ui xine-lib libdvdread vim vim-spell-es
+#
+############### Para todos xfce4 y gestores de ventanas ##########
+#
+#pacman -S dbus
+#systemctl enable dbus
+#pacman -S thunar-volman gvfs gvfs-afc
+#pacman -S xdg-user-dirs
+#xdg-user-dirs-update
+#reboot
+#
+############# Repositorio secundarios ############
+#
+#sudo nano /etc/pacman.conf (Añadir al final )
+#
+[archlinuxfr]
+SigLevel = Never
+Server = http://repo.archlinux.fr/$arch
+#
+################# Istalar yaourt ##################
+#
+#sudo pacman -Sy
+#sudo pacman -S yaourt
+#yaourt -Syua
+#
+#############  Instalar lightdm desde root  ############### 
+#
+#pacman -S lightdm-gtk-greeter lightdm-gtk-greeter-settings
+#systemctl enable lightdm.service
+#
+##############  Aplicaiones de aur ############
+#
+#yaourt -S i3-gaps-git
+#yaourt -S i3blocks
+#yaourt -S ttf-font-awesome
+#yaourt -S numix-circle-icon-theme-git
+#yaourt -S vertex-themes
+#yaourt -S telegram-desktop-bin
+#yaourt -S nmon
+#yaourt -S tty-clock 
+#yaourt -S slurm
+#yaourt -S j4-dmenu-desktop 
+#yaourt -S pulsemixer
+#yaourt -S stlarch_icons
+#yaourt -S hplip-plugin
+#yaourt -S wd719x-firmware *
+#yaourt -S aic94xx-firmware *
+#yaourt -S alsi
+#yaourt -S clarity-icon-theme 
+#
+#
+#
+#
+#
+#
+#
+#################  MPD   ######################
+#
+#mkdir ~/.config/mpd
+#~/.config/mpd/mpd.conf
+#mkdir .config/mpd/playlists
+#systemctl enable start && systemctl enable mpd
+#mpd stop
+#ncmpcpp
+#Q
+#
+################## Teclado ####################
+#
+#sudo nano /etc/X11/xorg.conf.d/10-keyboard.conf
+#
+Section "InputClass"
+        Identifier "system-keyboard"
+        MatchIsKeyboard "on"
+        Option "XkbLayout"  "latam" 
+        Option "XkbModel"   "pc104"
+        Option "XkbVariant" "deadtilde,dvorak"
+        Option "XkbOptions" "grp:alt_shift_toggle"
+EndSection
+#
+############## systemctl start && enable ################
+#
+#systemctl start cpupower && systemctl enable cpupower
+#systemctl start preload && systemctl enable preload
+#systemctl start cronie && systemctl enable cronie
+#systemctl start org.cups.cupsd && systemctl enable org.cups.cupsd
+#systemctl start tlp && systemctl enable tlp
+#systemctl start sshd && systemctl enable sshd
+#systemctl start bluetooth && systemctl enable bluetooth
+#ufw allow ssh/tcp
+#ufw logging on
+#ufw enable
+#(((sudo ufw status)))
+#
+############# Ajustar el formato horario ########
+#
+#sudo rm /etc/localtime
+#timedatectl set-timezone America/Mexico_City
+#hwclock --systohc
+#ntpd -qg  
+#timedatectl set-local-rtc 1 --adjust-system-clock  (((Con doble boot)))
+#
+############ Sólo resta lo siguiente:#############
+#
+#nano /etc/default/grub (((Editar grub)))
+#grub-mkconfig -o /boot/grub/grub.cfg  (Esto sirve para añadir partición window$ y el kernel lts) 
+#sudo pacman -S downgrade; downgrade pkg (((Para hacer un down a un paquete)))
+#sudo pacman -Scc ((( Borrar caché)))
+#fc-cache -fv (((sirve para actulizar las fuentes)))
+#
+########### Systemd #######
+#
+#sudo cp /etc/systemd/system.conf /etc/systemd/system.conf.backup
+#sudo nano /etc/systemd/system.conf
+#Descomentar: 
+DefaultTimeoutStartSec=??s
+DefaultTimeoutStopSec=??s
+#
+########### Sensors #######
+#
+#sensors-detect (((Ejecutar)))
+#sudo nano /etc/rc.conf >>>>>((Añadir la siguinete línea)))
+#DAEMONS=(syslog-ng crond ... sensors ...)
+#
+########### Recuperar grub ########### 
+#sudo fdisk -l 
+#mount -t ext4 /dev/sda? /mnt___raíz
+#arch-chroot /mnt
+#grub-install /dev/sda
+#exit && reboot
+#grub-mkconfig -o /boot/grub/grub.cfg 
+############################
+#
+Referencias:
+1- Wiki de Archlinux: https://wiki.archlinux.org/
+2- Dan Midfingr: https://github.com/midfingr
