@@ -1,9 +1,0 @@
-k#!/bin/sh 
-
-myvpn=$(ping -4 -n -c 2 10.4.0.1 | awk '/received/ { print $6; }' | rev | cut -c 2- | rev)
-
-if [ "$myvpn" -lt "100" ];then
-    echo -e " "
-else
-    echo -e " "
-fi 
