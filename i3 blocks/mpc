@@ -1,0 +1,18 @@
+#!/usr/sbin/bash
+
+
+current_song=$(mpc current)
+if [[ -z $current_song ]]; then
+     echo ""
+else
+    if [[ ${#current_song} -gt 25 ]]; then
+        current_song=${current_song:0:15}"..."
+    fi
+    echo " :$current_song"
+fi
+
+
+
+
+
+
