@@ -1,0 +1,12 @@
+#!/bin/bash
+for output in $(xrandr | grep '\Wconnected' | awk '{ print $1 }'); do
+    if [[ $output =~ ^LVDS.*$ ]]; then
+            lvds=$output
+    fi
+done
+for output in $(xrandr | grep '\Wconnected' | awk '{ print $1 }'); do
+    if [[ ! $output =~ ^LVDS.*$ ]]; then
+       xrandr --output $lvds --auto --output $output --pos 0x0 --auto \
+              --right-of $lvds --primary
+    fi
+done

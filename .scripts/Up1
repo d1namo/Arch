@@ -1,0 +1,33 @@
+#!/bin/bash
+
+if [ $USER != root ]; then
+  echo ">> Error: debes ser root"
+  echo ">> Terminando la ejecución del script ..."
+  exit 0
+fi
+
+echo
+echo ">> Actualizar mirrors ..."
+echo
+sudo reflector --verbose -l 10 --sort rate --save /etc/pacman.d/mirrorlist
+echo
+echo ">> Actulizar sistema ..."
+echo
+sudo pacman -Syu && yaourt -Su
+echo
+echo ">> Limpiar paquetes caché y paquetes huéfanos ..."
+echo
+sudo rm -rf /var/cache/pacman/pkg/
+sudo pacman -Rns $(pacman -Qtdq)
+echo
+echo ">> Vaciando carpetas temporales [/tmp] ..."
+echo
+sudo rm -rf /tmp/yaourt-tmp-[b]arcibel[/b]/*/** &> /dev/null
+echo
+echo ">> Optimizar ..."
+echo
+sudo pacman-optimize && sync
+echo
+sleep 2
+echo ">> Se han realizado todas las tareas correctamente. Hasta pronto!"
+echo
