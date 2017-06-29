@@ -1,3 +1,3 @@
 
 # Arch
-![alt text](https://raw.githubusercontent.com/d1namo/Arch/blob/master/Archlinux-herbstluftwm.png)
+![alt text](https://github.com/d1namo/Arch/blob/master/Archlinux-herbstluftwm.png)
