@@ -1,3 +1,3 @@
 
 # Arch
-![Una imagen cualquiera](https://drive.google.com/open?id=0B-oEddYAPHXuai1XaVFYR0lDYXc "150 x 150")
+![alt text](https://raw.githubusercontent.com/d1namo/Arch/Arch-linux i3wm.jpg)
