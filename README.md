@@ -1,2 +1,3 @@
+
 # Arch
-![Atributo Alt](url "https://github.com/d1namo/Arch/blob/master/Arch-linux%20i3wm.jpg")
+![Una imagen cualquiera](https://drive.google.com/open?id=0B-oEddYAPHXuai1XaVFYR0lDYXc)
